@@ -1,8 +1,7 @@
 import {
     DirectionalLight,
     AmbientLight,
-    Color,
-    DirectionalLightHelper
+    Color
 } from "three"
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
