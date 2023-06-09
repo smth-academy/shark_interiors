@@ -82,11 +82,23 @@ class Prodotto3D {
             obj.receiveShadow = true
             obj.castShadow = true
         } )
+
+        this._group.scale.y = 0.25
     }
 
     setStile( nomeStile ) {
 
         this.setupMateriale( this._stili[ nomeStile ] )
+    }
+
+    update() {
+
+        if (this._group.scale.y < 1) {
+            this._group.scale.y += 0.1
+            return
+        }
+
+        this._group.scale.y = 1
     }
 }
 

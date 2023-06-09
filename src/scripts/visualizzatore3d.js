@@ -70,6 +70,9 @@ function render() {
     {
         cameraController.update()
         scenario3d.update()
+
+        if (prodotto3d)
+            prodotto3d.update()
     }
 
     renderer.render( scene, camera )

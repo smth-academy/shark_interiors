@@ -1,7 +1,8 @@
 import {
     DirectionalLight,
     AmbientLight,
-    Color
+    Color,
+    DirectionalLightHelper
 } from "three"
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
@@ -19,16 +20,16 @@ class Scenario3D {
 
     init() {
 
-        this.dirLight = new DirectionalLight( 0xffffff )
-        this.dirLight.castShadow = true
-        this.dirLight.position.set( 2, 7.5, 5 )
-        this.dirLight.lookAt( 0, 0, 0 )
+        this._dirLight = new DirectionalLight( 0xffffff )
+        this._dirLight.castShadow = true
+        this._dirLight.position.set( 2, 7.5, 5 )
+        this._dirLight.lookAt( 0, 0, 0 )
         
         this._ambLight = new AmbientLight( 0x8f8f8f, 0.75 )
         
         this.caricaBaseScenario()
         
-        this._scene.add( this.dirLight )
+        this._scene.add( this._dirLight )
         this._scene.add( this._ambLight )
     }
 

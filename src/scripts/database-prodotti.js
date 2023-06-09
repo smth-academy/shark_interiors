@@ -55,7 +55,7 @@ creaProdotto( "mobili", {
         "Predefinito": {
             gambe: "Base",
             maniglie: "Schienale",
-            sportelli: "Cuciture",
+            sportelli: "Base",
             struttura: "Cuscino"
         }
     }
