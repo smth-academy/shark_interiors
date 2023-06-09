@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark Showroom</title>
+
+    <link rel="icon" href="res/icon.png">
+    <link rel="stylesheet" href="src/styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="src/scripts/index.js" defer></script>
+</head>
+<body>
+    <video class="video-intro" src="https://cdn.discordapp.com/attachments/1113003881228664844/1113125758328651876/video-test.mp4" autoplay muted loop></video>
+
+    <!-- MENU -->
+
+    <div class="menu-container">
+        <a class="site-logo" href="#"><img src="res/icon.png" alt=""></a>
+        <a class="menu-item" href="#">Home</a>
+        <a class="menu-item" href="#info">Chi siamo</a>
+        <a class="menu-item" href="#products">I nostri prodotti</a>
+
+        <a class="menu-item menu-item-download" href="#download">Download</a>
+    </div>
+
+    <!-- MENU A TENDINA -->
+
+    <div class="list-menu-container">
+        <a class="site-logo" href="#"><img src="res/icon.png" alt=""></a>
+        <select class="menu-item">
+            <option value="#">Home</option>
+            <option value="#info">Chi siamo</option>
+            <option value="products">I nostri prodotti</option>
+            <option value="#download">Download</option>
+        </select>
+    </div>
+
+    <!-- INTRO -->
+    
+    <div class="intro">
+        <h1>Dive into style.</h1>
+        <p class="intro-descr">
+            Una collezione esclusiva di mobili realizzati con materiali sostenibili, riciclati e riciclabili,
+            che prendono vita nelle forme degli abitanti dei fondali acquatici.
+        </p>
+    </div>
+
+    <!-- INFO -->
+    
+    <div id="info" class="content content-info">
+        <h1 class="info-titolo">Chi siamo</h1>
+        <div class="info-container">
+            <img class="info-img" src="res/pic3.jpg" alt="">
+            <p class="info-descr">
+                Ci siamo impegnati, in stretta collaborazione con l'organizzazione no-profit BluWave Conservation,
+                per dare vita ad una straordinaria linea di mobili in edizione limitata,
+                ispirati agli affascinanti abitanti dei fondali marini.
+            </p>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+
+    <div id="products" class="content content-products">
+        <h1 class="info-titolo">I nostri prodotti</h1>
+        <div class="info-container">
+            <img class="info-img" src="res/pic2.jpg" alt="">
+            <p class="info-descr">
+                Ogni acquisto di questi prodotti rappresenta un contributo diretto all'importante lavoro
+                svolto dai membri dell'organizzazione, i quali si dedicano con passione alla pulizia
+                delle spiagge e dei mari da rifiuti, con l'obiettivo di rendere il nostro mondo un luogo
+                meno inquinato e più sostenibile.
+            </p>
+        </div>
+        <div class="info-container">
+            <img class="info-img" src="res/pic1.jpg" alt="">
+            <p class="info-descr">
+                Scegliendo uno di questi pezzi unici, avrete quindi non solo l'opportunità di arricchire la vostra casa
+                con l'eleganza e la bellezza dei fondali marini, ma anche di fare concretamente la differenza aiutando
+                BluWave Conservation a preservare e proteggere i nostri tesori marini per le future generazioni.
+            </p>
+        </div>
+        
+        <button class="btn btn-products" href="prodotti.html">
+            <i class="fa fa-tags" style="padding-right: 8px;"></i>Scopri i nostri prodotti
+        </button>
+    </div>
+
+    <!-- DOWNLOAD -->
+
+    <div id="download" class="content content-download">
+        <h1 class="info-titolo">Prova l'esperienza virtuale</h1>
+        <p class="info-descr" style="margin-left: 0; margin-right: 0;">
+            Shark show-room  è una straordinaria esperienza virtuale in cui l'estetica si unisce all'impegno per la sostenibilità.
+        </p>
+        <button class="btn btn-download" style="margin-right: 20px;">
+            <i class="fa fa-windows" style="padding-right: 8px;"></i>Windows
+        </button>
+        <button class="btn btn-download" style="margin-right: 20px;">
+            <i class="fa fa-mobile" style="padding-right: 8px;"></i>Mobile
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-name">Shark Showroom</div>
+        <div class="footer-separator"></div>
+        <div class="footer-bottom">
+            <div class="footer-desc">Lorem ipsum</div>
+            <div class="footer-socials">
+                <a class="social-link" href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="social-link" href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a class="social-link" href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a class="social-link" href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
