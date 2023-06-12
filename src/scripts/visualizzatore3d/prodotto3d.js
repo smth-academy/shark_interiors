@@ -23,7 +23,7 @@ class Prodotto3D {
 
         const nomeModello = objProdotto.modello
 
-        if (nomeModello) {
+        if ( nomeModello ) {
             const pathModello = `res/prodotti/gltf/${nomeModello}.glb`
 
             this._group = await this.caricaGLTF( pathModello )
@@ -58,7 +58,7 @@ class Prodotto3D {
 
             const materialeOggetto = getMateriale( stile[ obj.name ] )
 
-            if (materialeOggetto) {
+            if ( materialeOggetto ) {
 
                 if ( materialeOggetto["color"] )
                     obj.material.color = new Color( materialeOggetto["color"] )
@@ -93,7 +93,10 @@ class Prodotto3D {
 
     update() {
 
-        if (this._group.scale.y < 1) {
+        if ( !this._group )
+            return
+
+        if ( this._group.scale.y < 1 ) {
             this._group.scale.y += 0.1
             return
         }

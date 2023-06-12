@@ -16,14 +16,24 @@ creaProdotto( "divani", {
             schienaleSX: "Schienale"
         },
 
-        "Test": {
+        "Stile 2": {
             base: "Base",
-            cuciture: "Base",
+            cuciture: "Cuciture",
             cuscinoDX: "Base",
             cuscinoSX: "Base",
             piedini: "Base",
             schienaleDX: "Base",
             schienaleSX: "Base"
+        },
+
+        "Stile 3": {
+            base: "Cuscino",
+            cuciture: "Cuciture",
+            cuscinoDX: "Base",
+            cuscinoSX: "Base",
+            piedini: "Base",
+            schienaleDX: "Cuscino",
+            schienaleSX: "Cuscino"
         }
     }
 } )
@@ -36,12 +46,17 @@ creaProdotto( "sedie", {
     stili: {
         "Predefinito": {
             gamba: "Base",
-            sedile: "Schienale"
+            sedile: "Legno"
         },
 
-        "Invertito": {
-            gamba: "Schienale",
+        "Stile 2": {
+            gamba: "Test",
             sedile: "Base"
+        },
+
+        "Stile 3": {
+            gamba: "Legno",
+            sedile: "Schienale"
         }
     }
 } )

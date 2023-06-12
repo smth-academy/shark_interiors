@@ -12,6 +12,13 @@ creaMateriale( "Cuciture", {
     roughness: 0.2
 } )
 
+creaMateriale( "Legno", {
+    color: 0x9a9a9a,
+    map: "res/texturetest2.jpg",
+    roughness: 0.8,
+    roughnessMap: "res/texturetest2.jpg"
+} )
+
 creaMateriale( "Schienale", {
     color: 0x2F6690,
     map: "res/texturetest.jpg",
@@ -24,6 +31,10 @@ creaMateriale( "Cuscino", {
     map: "res/texturetest.jpg",
     roughness: 0.8,
     roughnessMap: "res/texturetest.jpg"
+} )
+
+creaMateriale( "Test", {
+    map: "res/checker3.png"
 } )
 
 
