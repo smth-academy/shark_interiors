@@ -12,7 +12,7 @@ function creaElemento( categoria, id ) {
     a.href = `visualizzatore.html?categoria=${categoria}&id=${id}`
     a.style.textDecoration = "none"
     a.style.color = "var(--blue-color)"
-    a.target = "_blank"
+    a.target = "_top"
 
     const h2 = document.createElement( "h2" )
     h2.innerText = getProdotto( categoria, id ).titolo
