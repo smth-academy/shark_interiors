@@ -17,8 +17,8 @@ body {
 
 #canvas-container {
     flex: 1;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     justify-content: center;
     z-index: 9999;
 }
@@ -28,15 +28,6 @@ body {
     border-style: solid;
     border-width: 2px;
     border-color: var(--light-color);
-}
-
-.site-logo {
-    position: fixed;
-    margin: 0;
-    padding: 8px;
-    background-color: var(--dark-color);
-    border-bottom-right-radius: calc(var(--border-radius) / 2);
-    z-index: 9997;
 }
 
 .content {

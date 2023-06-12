@@ -29,16 +29,6 @@ function addSlotStile( nomeStile ) {
 
     btn.onclick = () => {
 
-        slotStili.forEach( (s) => {
-            
-            if ( s === btn ) {
-                s.classList.add( "active-slot" )
-                return
-            }
-
-            s.classList.remove( "active-slot" )
-        } )
-
         setStileAttivo( nomeStile )
         window.setStileProdotto3D( nomeStile )
     }
@@ -50,6 +40,16 @@ function addSlotStile( nomeStile ) {
 function setStileAttivo( nomeStile ) {
 
     info.stile.innerText = `Stile: ${nomeStile}`
+
+    slotStili.forEach( (s) => {
+            
+        if ( s.innerText === nomeStile ) {
+            s.classList.add( "active-slot" )
+            return
+        }
+
+        s.classList.remove( "active-slot" )
+    } )
 }
 
 function visualizzaProdotto( categoria, id ) {
