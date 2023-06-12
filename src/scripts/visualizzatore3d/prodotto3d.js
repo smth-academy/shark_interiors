@@ -57,7 +57,6 @@ function setMaterialeOggetto( obj, mat ) {
     if ( !mat )
         return
     
-    if ( mat["color"] )
         obj.material.color = new Color( mat["color"] )
     
     if ( mat["metalness"] )
@@ -74,6 +73,9 @@ function setMaterialeOggetto( obj, mat ) {
     
     if ( mat["roughnessMap"] )
         obj.material.roughnessMap = textureLoader.load( mat["roughnessMap"] )
+
+    if ( mat["normalMap"] )
+        obj.material.normalMap = textureLoader.load( mat["normalMap"] )
 }
 
 function setStile( nomeStile ) {
