@@ -3,11 +3,10 @@ import {
     PerspectiveCamera
 } from 'three'
 
-import { Prodotto3D } from './visualizzatore3d/prodotto3d.js'
-import { Scenario3D } from './visualizzatore3d/scenario3d.js'
-import { creaCameraController } from './visualizzatore3d/cameraController3d.js'
 import { setupRenderer } from './visualizzatore3d/renderer3d.js'
-
+import { creaCameraController } from './visualizzatore3d/cameraController3d.js'
+import * as Scenario3D from './visualizzatore3d/scenario3d.js'
+import * as Prodotto3D from './visualizzatore3d/prodotto3d.js'
 
 
 const canvas = document.getElementById( "canvas-container" )
@@ -34,35 +33,34 @@ function init() {
     camera.position.set( 2.5, 2, 2.5 )
     cameraController.update()
 
-    scenario3d = new Scenario3D( scene )
-
+    initScena()
+    
     window.addEventListener( "resize", resize )
 }
 
-function setProdotto3D( objProdotto ) {
-
-    if ( prodotto3d ) return
-
-    prodotto3d = new Prodotto3D( objProdotto, scene )
+async function initScena() {
+    
+    scenario3d = await Scenario3D.crea()
+    scene.add( scenario3d )
 }
 
-function setStileProdotto3D( nomeStile ) {
+async function setProdotto3D( objProdotto ) {
 
-    prodotto3d.setStile( nomeStile )
+    if ( !objProdotto )
+        return
+
+    if ( prodotto3d )
+        return
+
+    prodotto3d = await Prodotto3D.crea( objProdotto )
+    scene.add( prodotto3d )
 }
 
 function render() {
 
     requestAnimationFrame( render )
 
-    {
-        scenario3d.update()
-        
-        if (prodotto3d)
-            prodotto3d.update()
-        
-        cameraController.update()
-    }
+    cameraController.update()
 
     renderer.render( scene, camera )
 }
@@ -77,7 +75,4 @@ function resize() {
 }
 
 
-
-
 window.setProdotto3D = setProdotto3D
-window.setStileProdotto3D = setStileProdotto3D

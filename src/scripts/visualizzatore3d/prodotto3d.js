@@ -6,103 +6,86 @@ import {
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
+
 const gltfLoader = new GLTFLoader()
 const textureLoader = new TextureLoader()
 
-class Prodotto3D {
+let gltfGroup
+let stili
 
-    constructor( objProdotto, scene ) {
 
-        this._scene = scene
-        this._caricato = false
+async function crea( objProdotto ) {
 
-        this.init( objProdotto )
-    }
+    const nomeModello = objProdotto.modello
+    const pathModello = `res/prodotti/gltf/${nomeModello}.glb`
 
-    async init( objProdotto ) {
+    gltfGroup = await caricaGLTF( pathModello )
+    stili = objProdotto.stili
 
-        const nomeModello = objProdotto.modello
+    setMateriali( stili[ "Predefinito" ] )
 
-        if ( nomeModello ) {
-            const pathModello = `res/prodotti/gltf/${nomeModello}.glb`
-
-            this._group = await this.caricaGLTF( pathModello )
-            this._stili = objProdotto.stili
-            this.setupMateriale( this._stili[ "Predefinito" ] )
-            
-            this._scene.add( this._group )
-        }
-    }
-
-    async caricaGLTF( pathModello ) {
-
-        let gltf = await gltfLoader.loadAsync( pathModello )
-        let group = gltf.scene
-
-        group.name = "groupProdotto3D"
-        this._caricato = true
-
-        return group
-    }
-
-    setupMateriale( stile ) {
-
-        this._group.traverse( (obj) => {
-
-            if ( !obj.isMesh ) return
-
-            obj.material = new MeshStandardMaterial()
-
-            //fix shadow acne nascondendo le backface
-            obj.material.side = 0
-
-            const materialeOggetto = getMateriale( stile[ obj.name ] )
-
-            if ( materialeOggetto ) {
-
-                if ( materialeOggetto["color"] )
-                    obj.material.color = new Color( materialeOggetto["color"] )
-                
-                if ( materialeOggetto["metalness"] )
-                    obj.material.metalness = materialeOggetto["metalness"]
-                
-                if ( materialeOggetto["roughness"] )
-                    obj.material.roughness = materialeOggetto["roughness"]
-
-                if ( materialeOggetto["map"] )
-                    obj.material.map = textureLoader.load( materialeOggetto["map"] )
-                
-                if ( materialeOggetto["metalnessMap"] )
-                    obj.material.metalnessMap = textureLoader.load( materialeOggetto["metalnessMap"] )
-                
-                if ( materialeOggetto["roughnessMap"] )
-                    obj.material.roughnessMap = textureLoader.load( materialeOggetto["roughnessMap"] )
-            }
-
-            obj.receiveShadow = true
-            obj.castShadow = true
-        } )
-
-        this._group.scale.y = 0.25
-    }
-
-    setStile( nomeStile ) {
-
-        this.setupMateriale( this._stili[ nomeStile ] )
-    }
-
-    update() {
-
-        if ( !this._group )
-            return
-
-        if ( this._group.scale.y < 1 ) {
-            this._group.scale.y += 0.1
-            return
-        }
-
-        this._group.scale.y = 1
-    }
+    return gltfGroup
 }
 
-export { Prodotto3D }
+async function caricaGLTF( pathModello ) {
+
+    let gltf = await gltfLoader.loadAsync( pathModello )
+    let group = gltf.scene
+
+    group.name = "groupProdotto3D"
+
+    return group
+}
+
+async function setMateriali( stile ) {
+
+    gltfGroup.traverse( (obj) => {
+
+        setMaterialeOggetto( obj, getMateriale(stile[ obj.name ]) )
+    } )
+}
+
+function setMaterialeOggetto( obj, mat ) {
+
+    if ( !obj.isMesh )
+        return
+
+    obj.material = new MeshStandardMaterial( { side: 0 } )
+    obj.receiveShadow = true
+    obj.castShadow = true
+
+    if ( !mat )
+        return
+    
+    if ( mat["color"] )
+        obj.material.color = new Color( mat["color"] )
+    
+    if ( mat["metalness"] )
+        obj.material.metalness = mat["metalness"]
+    
+    if ( mat["roughness"] )
+        obj.material.roughness = mat["roughness"]
+
+    if ( mat["map"] )
+        obj.material.map = textureLoader.load( mat["map"] )
+    
+    if ( mat["metalnessMap"] )
+        obj.material.metalnessMap = textureLoader.load( mat["metalnessMap"] )
+    
+    if ( mat["roughnessMap"] )
+        obj.material.roughnessMap = textureLoader.load( mat["roughnessMap"] )
+}
+
+function setStile( nomeStile ) {
+
+    if ( !gltfGroup )
+        return
+
+    setMateriali( stili[ nomeStile ] )
+}
+
+
+export { crea, setStile }
+
+
+window.setStileProdotto3D = setStile
