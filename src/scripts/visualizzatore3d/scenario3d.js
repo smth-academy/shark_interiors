@@ -3,8 +3,7 @@ import {
     AmbientLight,
     MeshStandardMaterial,
     TextureLoader,
-    Group,
-    Object3D
+    Group
 } from "three"
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'

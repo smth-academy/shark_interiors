@@ -1,10 +1,6 @@
 import {
     Scene,
-    PerspectiveCamera,
-    Mesh,
-    BoxGeometry,
-    MeshStandardMaterial,
-    DirectionalLightHelper
+    PerspectiveCamera
 } from 'three'
 
 import { setupRenderer } from './visualizzatore3d/renderer3d.js'
@@ -21,8 +17,6 @@ let cameraController
 
 let scenario3d
 let prodotto3d
-
-let transformControls
 
 init()
 render()
