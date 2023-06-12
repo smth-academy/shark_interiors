@@ -1,13 +1,16 @@
 import {
     Scene,
-    PerspectiveCamera
+    PerspectiveCamera,
+    Mesh,
+    BoxGeometry,
+    MeshStandardMaterial,
+    DirectionalLightHelper
 } from 'three'
 
 import { setupRenderer } from './visualizzatore3d/renderer3d.js'
 import { creaCameraController } from './visualizzatore3d/cameraController3d.js'
 import * as Scenario3D from './visualizzatore3d/scenario3d.js'
 import * as Prodotto3D from './visualizzatore3d/prodotto3d.js'
-
 
 const canvas = document.getElementById( "canvas-container" )
 const renderer = setupRenderer( canvas )
@@ -19,6 +22,7 @@ let cameraController
 let scenario3d
 let prodotto3d
 
+let transformControls
 
 init()
 render()
@@ -61,6 +65,9 @@ function render() {
     requestAnimationFrame( render )
 
     cameraController.update()
+
+    if ( prodotto3d )
+        prodotto3d.rotation.y += 0.005
 
     renderer.render( scene, camera )
 }

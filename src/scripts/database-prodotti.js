@@ -7,7 +7,7 @@ creaProdotto( "divani", {
     modello: "divano_wes",
     stili: {
         "Predefinito": {
-            base: "Base",
+            base: "Legno",
             cuciture: "Cuciture",
             cuscinoDX: "Cuscino",
             cuscinoSX: "Cuscino",
@@ -87,6 +87,20 @@ creaProdotto( "mobili", {
             porte: "Schienale",
             sostegno: "Cuciture",
             struttura: "Base"
+        }
+    }
+} )
+
+creaProdotto( "tavoli", {
+    titolo: "Tavolo Halley",
+    descrizione: "",
+    dimensioni: [7, 8, 9],
+    modello: "tavolo_halley",
+    stili: {
+        "Predefinito": {
+            gamba: "MetalloRiciclato",
+            placca: "MetalloLucido",
+            ripiano: "Legno"
         }
     }
 } )

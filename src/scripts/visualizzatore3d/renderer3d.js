@@ -6,8 +6,7 @@ import {
 function setupRenderer( canvas ) {
 
     const renderer = new WebGLRenderer( {
-        antialias: true,
-        alpha: true
+        antialias: true
     } )
     renderer.setSize( canvas.clientWidth, canvas.clientHeight )
     renderer.setPixelRatio( window.devicePixelRatio )

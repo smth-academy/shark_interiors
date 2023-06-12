@@ -3,7 +3,8 @@ import {
     AmbientLight,
     MeshStandardMaterial,
     TextureLoader,
-    Group
+    Group,
+    Object3D
 } from "three"
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
@@ -16,9 +17,9 @@ const textureLoader = new TextureLoader()
 async function crea() {
 
     const dirLight = new DirectionalLight( 0xffffff )
+    dirLight.name = "LuceDirezionale"
     dirLight.castShadow = true
     dirLight.position.set( 2, 7.5, 5 )
-    dirLight.lookAt( 0, 0, 0 )
 
     const ambientLight = new AmbientLight( 0x8f8f8f, 0.75 )
 

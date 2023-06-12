@@ -1,6 +1,7 @@
 import {
     Color,
     MeshStandardMaterial,
+    RepeatWrapping,
     TextureLoader
 } from 'three'
 
@@ -41,9 +42,20 @@ async function setMateriali( stile ) {
 
     gltfGroup.traverse( (obj) => {
 
-        setMaterialeOggetto( obj, getMateriale(stile[ obj.name ]) )
+        if ( !obj.isMesh )
+            return
+        
+        obj.receiveShadow = true
+        obj.castShadow = true
+
+        obj.material.side = 0
+        obj.material.metalness *= 0.5
+
+        //setMaterialeOggetto( obj, getMateriale(stile[ obj.name ]) )
     } )
 }
+
+let texturesPool = {}
 
 function setMaterialeOggetto( obj, mat ) {
 
@@ -57,7 +69,7 @@ function setMaterialeOggetto( obj, mat ) {
     if ( !mat )
         return
     
-        obj.material.color = new Color( mat["color"] )
+    obj.material.color = new Color( mat["color"] )
     
     if ( mat["metalness"] )
         obj.material.metalness = mat["metalness"]
@@ -66,16 +78,29 @@ function setMaterialeOggetto( obj, mat ) {
         obj.material.roughness = mat["roughness"]
 
     if ( mat["map"] )
-        obj.material.map = textureLoader.load( mat["map"] )
+        obj.material.map = caricaTexture( mat["map"], mat["scale"] )
     
     if ( mat["metalnessMap"] )
-        obj.material.metalnessMap = textureLoader.load( mat["metalnessMap"] )
+        obj.material.metalnessMap = caricaTexture( mat["metalnessMap"], mat["scale"] )
     
     if ( mat["roughnessMap"] )
-        obj.material.roughnessMap = textureLoader.load( mat["roughnessMap"] )
+        obj.material.roughnessMap = caricaTexture( mat["roughnessMap"], mat["scale"] )
 
     if ( mat["normalMap"] )
-        obj.material.normalMap = textureLoader.load( mat["normalMap"] )
+        obj.material.normalMap = caricaTexture( mat["normalMap"], mat["scale"] )
+}
+
+function caricaTexture( path, scale ) {
+
+    const texture = textureLoader.load( "res/prodotti/materiali/" + path )
+    texture.wrapS = RepeatWrapping
+    texture.wrapT = RepeatWrapping
+    texture.repeat.set( scale, scale )
+
+    if ( !texturesPool[ path ] )
+        texturesPool[ path ] = texture
+    
+    return texturesPool[ path ]
 }
 
 function setStile( nomeStile ) {
