@@ -1,6 +1,7 @@
 import {
     Scene,
-    PerspectiveCamera
+    PerspectiveCamera,
+    LoadingManager
 } from 'three'
 
 import { setupRenderer } from './visualizzatore3d/renderer3d.js'
@@ -19,12 +20,16 @@ let scenario3d
 let prodotto3d
 
 init()
-render()
 
 function init() {
     
     scene = new Scene()
     camera = new PerspectiveCamera( 45, canvas.clientWidth / canvas.clientHeight )
+
+    const loadingManager = new LoadingManager()
+
+    Scenario3D.init( loadingManager )
+    Prodotto3D.init( loadingManager )
 
     cameraController = creaCameraController( camera, renderer.domElement )
 
@@ -34,6 +39,10 @@ function init() {
     initScena()
     
     window.addEventListener( "resize", resize )
+
+    loadingManager.onLoad = () => {
+        render()
+    }
 }
 
 async function initScena() {

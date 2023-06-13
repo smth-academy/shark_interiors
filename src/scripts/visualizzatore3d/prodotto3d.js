@@ -8,12 +8,18 @@ import {
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
 
-const gltfLoader = new GLTFLoader()
-const textureLoader = new TextureLoader()
+let gltfLoader
+let textureLoader
 
 let gltfGroup
 let stili
 
+
+function init( loadingManager ) {
+
+    gltfLoader = new GLTFLoader( loadingManager )
+    textureLoader = new TextureLoader( loadingManager )
+}
 
 async function crea( objProdotto ) {
 
@@ -112,7 +118,7 @@ function setStile( nomeStile ) {
 }
 
 
-export { crea, setStile }
+export { init, crea, setStile }
 
 
 window.setStileProdotto3D = setStile

@@ -9,9 +9,14 @@ import {
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
 
-const gltfLoader = new GLTFLoader()
-const textureLoader = new TextureLoader()
+let gltfLoader
+let textureLoader
 
+function init( loadingManager ) {
+
+    gltfLoader = new GLTFLoader( loadingManager )
+    textureLoader = new TextureLoader( loadingManager )
+}
 
 async function crea() {
 
@@ -56,4 +61,4 @@ async function caricaBaseScenario() {
     return mesh
 }
 
-export { crea }
+export { init, crea }
