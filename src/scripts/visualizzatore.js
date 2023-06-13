@@ -30,7 +30,10 @@ function addSlotStile( nomeStile ) {
     btn.onclick = () => {
 
         setStileAttivo( nomeStile )
-        window.setStileProdotto3D( nomeStile )
+
+        try {
+            window.setStileProdotto3D( nomeStile )
+        } catch(e) {}
     }
 
     slotStili.push( btn )
@@ -74,7 +77,9 @@ function visualizzaProdotto( categoria, id ) {
         addSlotStile( nomeStile )
     }
 
-    window.setProdotto3D( pr )
+    try {
+        window.setProdotto3D( pr )
+    } catch(e) {}
 
     setStileAttivo( "Predefinito" )
     
