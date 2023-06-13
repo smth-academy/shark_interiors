@@ -1,96 +1,5 @@
 let prodotti = {}
 
-creaProdotto( "divani", {
-    titolo: "Divano Wes",
-    descrizione: "Descrizione",
-    dimensioni: [1, 2, 3],
-    modello: "divano_wes",
-    stili: {
-        "Predefinito": {
-            base: "Legno",
-            cuciture: "Cuciture",
-            cuscinoDX: "Cuscino",
-            cuscinoSX: "Cuscino",
-            piedini: "Base",
-            schienaleDX: "Schienale",
-            schienaleSX: "Schienale"
-        },
-
-        "Stile 2": {
-            base: "Base",
-            cuciture: "Cuciture",
-            cuscinoDX: "Base",
-            cuscinoSX: "Base",
-            piedini: "Base",
-            schienaleDX: "Base",
-            schienaleSX: "Base"
-        },
-
-        "Stile 3": {
-            base: "Cuscino",
-            cuciture: "Cuciture",
-            cuscinoDX: "Base",
-            cuscinoSX: "Base",
-            piedini: "Base",
-            schienaleDX: "Cuscino",
-            schienaleSX: "Cuscino"
-        }
-    }
-} )
-
-creaProdotto( "sedie", {
-    titolo: "Sedia Lilly",
-    descrizione: "Descrizione",
-    dimensioni: [2, 3, 4],
-    modello: "sedia_lilly",
-    stili: {
-        "Predefinito": {
-            gamba: "Base",
-            sedile: "Legno"
-        },
-
-        "Stile 2": {
-            gamba: "Test",
-            sedile: "Base"
-        },
-
-        "Stile 3": {
-            gamba: "Legno",
-            sedile: "Schienale"
-        }
-    }
-} )
-
-creaProdotto( "mobili", {
-    titolo: "Armadietto Nelson",
-    descrizione: "Descrizione",
-    dimensioni: [3, 4, 5],
-    modello: "armadietto_nelson",
-    stili: {
-        "Predefinito": {
-            gambe: "Base",
-            maniglie: "Schienale",
-            sportelli: "Base",
-            struttura: "Cuscino"
-        }
-    }
-} )
-
-creaProdotto( "mobili", {
-    titolo: "Armadio Nelson",
-    descrizione: "Descrizione",
-    dimensioni: [4, 5, 6],
-    modello: "armadio_nelson",
-    stili: {
-        "Predefinito": {
-            maniglie: "Cuscino",
-            porte: "Schienale",
-            sostegno: "Cuciture",
-            struttura: "Base"
-        }
-    }
-} )
-
 creaProdotto( "tavoli", {
     titolo: "Tavolo Halley",
     descrizione: "",
@@ -98,9 +7,19 @@ creaProdotto( "tavoli", {
     modello: "tavolo_halley",
     stili: {
         "Predefinito": {
-            gamba: "MetalloRiciclato",
-            placca: "MetalloLucido",
-            ripiano: "Legno"
+            gamba: 0xffffff,
+            placca: 0xffffff,
+            ripiano: 0xffffff
+        },
+        
+        "Rosso": {
+            gamba: 0xff0000,
+            placca: 0xff0000
+        },
+
+        "Blu": {
+            gamba: 0x0000ff,
+            placca: 0x0000ff
         }
     }
 } )

@@ -29,7 +29,7 @@ async function crea( objProdotto ) {
     gltfGroup = await caricaGLTF( pathModello )
     stili = objProdotto.stili
 
-    setMateriali( stili[ "Predefinito" ] )
+    setMateriali()
 
     return gltfGroup
 }
@@ -44,7 +44,7 @@ async function caricaGLTF( pathModello ) {
     return group
 }
 
-async function setMateriali( stile ) {
+async function setMateriali() {
 
     gltfGroup.traverse( (obj) => {
 
@@ -56,44 +56,20 @@ async function setMateriali( stile ) {
 
         obj.material.side = 0
         obj.material.metalness *= 0.5
-
-        //setMaterialeOggetto( obj, getMateriale(stile[ obj.name ]) )
     } )
 }
 
-let texturesPool = {}
-
-function setMaterialeOggetto( obj, mat ) {
-
-    if ( !obj.isMesh )
-        return
-
-    obj.material = new MeshStandardMaterial( { side: 0 } )
-    obj.receiveShadow = true
-    obj.castShadow = true
-
-    if ( !mat )
-        return
+function setStile( nomeStile ) {
     
-    obj.material.color = new Color( mat["color"] )
-    
-    if ( mat["metalness"] )
-        obj.material.metalness = mat["metalness"]
-    
-    if ( mat["roughness"] )
-        obj.material.roughness = mat["roughness"]
+    const stile = stili[ nomeStile ]
 
-    if ( mat["map"] )
-        obj.material.map = caricaTexture( mat["map"], mat["scale"] )
-    
-    if ( mat["metalnessMap"] )
-        obj.material.metalnessMap = caricaTexture( mat["metalnessMap"], mat["scale"] )
-    
-    if ( mat["roughnessMap"] )
-        obj.material.roughnessMap = caricaTexture( mat["roughnessMap"], mat["scale"] )
+    gltfGroup.traverse( (obj) => {
 
-    if ( mat["normalMap"] )
-        obj.material.normalMap = caricaTexture( mat["normalMap"], mat["scale"] )
+        if ( !obj.isMesh )
+            return
+        
+        obj.material.color = new Color( stile[ obj.name ] )
+    } )
 }
 
 function caricaTexture( path, scale ) {
@@ -107,14 +83,6 @@ function caricaTexture( path, scale ) {
         texturesPool[ path ] = texture
     
     return texturesPool[ path ]
-}
-
-function setStile( nomeStile ) {
-
-    if ( !gltfGroup )
-        return
-
-    setMateriali( stili[ nomeStile ] )
 }
 
 
