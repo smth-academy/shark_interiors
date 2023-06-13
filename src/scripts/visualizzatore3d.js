@@ -13,7 +13,6 @@ import * as Prodotto3D from './visualizzatore3d/prodotto3d.js'
 
 const canvasContainer = document.getElementById( "canvas-container" )
 const renderer = setupRenderer( canvasContainer )
-const canvas = canvasContainer.getElementsByTagName( "canvas" )[ 0 ]
 
 let scene
 let camera
