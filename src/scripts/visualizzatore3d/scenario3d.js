@@ -27,7 +27,7 @@ async function crea() {
 
     const ambientLight = new AmbientLight( 0x8f8f8f, 0.75 )
 
-    const baseScenario = await caricaBaseScenario( "res/scenario/gltf/base_scenario.glb" )
+    const baseScenario = await caricaBaseScenario()
 
     const groupScenario3D = new Group()
     groupScenario3D.name = "Scenario3D"
