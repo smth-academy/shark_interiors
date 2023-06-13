@@ -68,7 +68,7 @@ function visualizzaProdotto( categoria, id ) {
         pr.titolo
 
     info.dimensioni.innerText =
-        `Dimensioni: ${pr.dimensioni[0]}x${pr.dimensioni[1]}x${pr.dimensioni[2]}`
+        `Dimensioni: ${pr.dimensioni[0][0]} x ${pr.dimensioni[0][1]} x ${pr.dimensioni[0][2]} ${pr.dimensioni[1]}`
 
     for( const nomeStile of Object.keys( pr.stili ) ) {
         addSlotStile( nomeStile )

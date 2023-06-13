@@ -3,7 +3,9 @@ let prodotti = {}
 creaProdotto( "tavoli", {
     titolo: "Tavolo Halley",
     descrizione: "",
-    dimensioni: [7, 8, 9],
+    dimensioni: [
+        [3, 0.7, 1.30], "m"
+    ],
     modello: "tavolo_halley",
     stili: {
         "Predefinito": {
@@ -23,6 +25,61 @@ creaProdotto( "tavoli", {
     }
 } )
 
+creaProdotto( "mobili", {
+    titolo: "Armadio Nelson",
+    descrizione: "",
+    dimensioni: [
+        [70, 135, 46], "cm"
+    ],
+    modello: "armadio_nelson",
+    stili: {
+        "Predefinito": {
+
+        }
+    }
+} )
+
+creaProdotto( "mobili", {
+    titolo: "Armadietto Nelson",
+    descrizione: "",
+    dimensioni: [
+        [2.4, 0.7, 0.5], "m"
+    ],
+    modello: "armadietto_nelson",
+    stili: {
+        "Predefinito": {
+
+        }
+    }
+} )
+
+creaProdotto( "sedie", {
+    titolo: "Sedia Lilly",
+    descrizione: "",
+    dimensioni: [
+        [0.5, 1, 0.5], "m"
+    ],
+    modello: "sedia_lilly",
+    stili: {
+        "Predefinito": {
+
+        }
+    }
+} )
+
+creaProdotto( "divani", {
+    titolo: "Divano Wes",
+    descrizione: "",
+    dimensioni: [
+        [2.7, 0.8, 1], "cm"
+    ],
+    modello: "divano_wes",
+    stili: {
+        "Predefinito": {
+
+        }
+    }
+} )
 
 function creaProdotto( categoria, oggettoProdotto ) {
 
