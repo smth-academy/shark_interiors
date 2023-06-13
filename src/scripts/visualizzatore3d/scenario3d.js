@@ -2,15 +2,12 @@ import {
     DirectionalLight,
     AmbientLight,
     Group,
-    EquirectangularReflectionMapping,
 
     DirectionalLightHelper,
-    AxesHelper,
-    GridHelper
+    AxesHelper
 } from "three"
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
 
 
 let gltfLoader

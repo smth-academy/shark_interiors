@@ -41,7 +41,7 @@ function init() {
 
     cameraController = creaCameraController( camera, renderer.domElement )
 
-    camera.position.set( 10, 10, 10 )
+    camera.position.set( 4, 4, 4 )
     cameraController.update()
 
     initScena()
