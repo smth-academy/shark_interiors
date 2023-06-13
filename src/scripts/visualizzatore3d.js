@@ -41,7 +41,7 @@ function init() {
 
     cameraController = creaCameraController( camera, renderer.domElement )
 
-    camera.position.set( 2.5, 2, 2.5 )
+    camera.position.set( 10, 10, 10 )
     cameraController.update()
 
     initScena()
@@ -84,7 +84,6 @@ function render() {
             prodotto3d.rotation.y += 0.005
         }
     }
-
 
     renderer.render( scene, camera )
 }

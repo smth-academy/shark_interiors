@@ -1,31 +1,36 @@
 import {
     DirectionalLight,
     AmbientLight,
-    MeshStandardMaterial,
-    TextureLoader,
-    Group
+    Group,
+    EquirectangularReflectionMapping,
+
+    DirectionalLightHelper,
+    AxesHelper,
+    GridHelper
 } from "three"
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
 
 
 let gltfLoader
-let textureLoader
 
 function init( loadingManager ) {
 
     gltfLoader = new GLTFLoader( loadingManager )
-    textureLoader = new TextureLoader( loadingManager )
 }
 
 async function crea() {
 
-    const dirLight = new DirectionalLight( 0xffffff )
-    dirLight.name = "LuceDirezionale"
+    const dirLight = new DirectionalLight( 0xfdf9f4 )
     dirLight.castShadow = true
-    dirLight.position.set( 2, 7.5, 5 )
+    dirLight.position.set( 0, 2.5, 10)
 
-    const ambientLight = new AmbientLight( 0x8f8f8f, 0.75 )
+    const debug = new Group()
+    debug.add(new DirectionalLightHelper(dirLight))
+    debug.add(new AxesHelper(10))
+
+    const ambientLight = new AmbientLight( 0xffffff )
 
     const baseScenario = await caricaBaseScenario()
 
@@ -41,22 +46,8 @@ async function caricaBaseScenario() {
 
     const gltf = await gltfLoader.loadAsync( "res/scenario/gltf/base_scenario.glb" )
     const mesh = gltf.scene.children[ 0 ]
-
-    Promise.all( [
-
-        textureLoader.loadAsync( "res/scenario/materiali/metal/diffuse.jpg" ),
-        textureLoader.loadAsync( "res/scenario/materiali/metal/normal.jpg" ),
-        textureLoader.loadAsync( "res/scenario/materiali/metal/roughness.jpg" )
-    ]  ).then( (textures) => {
-
-        mesh.material = new MeshStandardMaterial( {
-            map: textures[ 0 ],
-            normalMap: textures[ 1 ],
-            roughnessMap: textures[ 2 ]
-        } )
-    } )
-
     mesh.receiveShadow = true
+    mesh.material.side = 0
 
     return mesh
 }
