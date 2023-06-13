@@ -1,15 +1,11 @@
 import {
-    Color,
-    MeshStandardMaterial,
-    RepeatWrapping,
-    TextureLoader
+    Color
 } from 'three'
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
 
 let gltfLoader
-let textureLoader
 
 let gltfGroup
 let stili
@@ -18,7 +14,6 @@ let stili
 function init( loadingManager ) {
 
     gltfLoader = new GLTFLoader( loadingManager )
-    textureLoader = new TextureLoader( loadingManager )
 }
 
 async function crea( objProdotto ) {
@@ -70,19 +65,6 @@ function setStile( nomeStile ) {
         
         obj.material.color = new Color( stile[ obj.name ] )
     } )
-}
-
-function caricaTexture( path, scale ) {
-
-    const texture = textureLoader.load( "res/prodotti/materiali/" + path )
-    texture.wrapS = RepeatWrapping
-    texture.wrapT = RepeatWrapping
-    texture.repeat.set( scale, scale )
-
-    if ( !texturesPool[ path ] )
-        texturesPool[ path ] = texture
-    
-    return texturesPool[ path ]
 }
 
 
