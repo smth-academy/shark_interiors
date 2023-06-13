@@ -1,4 +1,5 @@
 import {
+    Clock,
     Scene,
     PerspectiveCamera,
     LoadingManager
@@ -9,8 +10,10 @@ import { creaCameraController } from './visualizzatore3d/cameraController3d.js'
 import * as Scenario3D from './visualizzatore3d/scenario3d.js'
 import * as Prodotto3D from './visualizzatore3d/prodotto3d.js'
 
-const canvas = document.getElementById( "canvas-container" )
-const renderer = setupRenderer( canvas )
+
+const canvasContainer = document.getElementById( "canvas-container" )
+const renderer = setupRenderer( canvasContainer )
+const canvas = canvasContainer.getElementsByTagName( "canvas" )[ 0 ]
 
 let scene
 let camera
@@ -19,12 +22,17 @@ let cameraController
 let scenario3d
 let prodotto3d
 
+let clock
+
 init()
+render()
 
 function init() {
+
+    clock = new Clock()
     
     scene = new Scene()
-    camera = new PerspectiveCamera( 45, canvas.clientWidth / canvas.clientHeight )
+    camera = new PerspectiveCamera( 45, canvasContainer.clientWidth / canvasContainer.clientHeight )
 
     const loadingManager = new LoadingManager()
 
@@ -40,8 +48,8 @@ function init() {
     
     window.addEventListener( "resize", resize )
 
-    loadingManager.onLoad = () => {
-        render()
+    loadingManager.onProgress = ( _, loaded, total ) => {
+        console.log((loaded/total)*100)
     }
 }
 
@@ -67,20 +75,26 @@ function render() {
 
     requestAnimationFrame( render )
 
-    cameraController.update()
+    const delta = clock.getDelta()
 
-    if ( prodotto3d )
-        prodotto3d.rotation.y += 0.005
+    {
+        cameraController.update()
+    
+        if ( prodotto3d ) {
+            prodotto3d.rotation.y += 0.005
+        }
+    }
+
 
     renderer.render( scene, camera )
 }
 
 function resize() {
     
-    camera.aspect = canvas.clientWidth / canvas.clientHeight
+    camera.aspect = canvasContainer.clientWidth / canvasContainer.clientHeight
     camera.updateProjectionMatrix()
     
-    renderer.setSize( canvas.clientWidth, canvas.clientHeight )
+    renderer.setSize( canvasContainer.clientWidth, canvasContainer.clientHeight )
     renderer.setPixelRatio( window.devicePixelRatio )
 }
 
