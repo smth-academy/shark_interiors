@@ -13,8 +13,7 @@ creaProdotto( "tavoli", {
         },
         
         "Rosso": {
-            gamba: 0xff0000,
-            placca: 0xff0000
+            ripiano: 0xff0000
         },
 
         "Blu": {
