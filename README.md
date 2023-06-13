@@ -1,2 +1,5 @@
+![Immagine](res/icon.png)
+
 # Shark Interiors
-sito vetrina e visualizzatore mobili Shark Interiors
+
+Sito vetrina e visualizzatore mobili Shark Interiors
