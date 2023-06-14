@@ -6,6 +6,7 @@ import {
 function setupRenderer( canvas ) {
 
     const renderer = new WebGLRenderer( {
+        alpha: true,
         antialias: true
     } )
     renderer.setSize( canvas.clientWidth, canvas.clientHeight )
