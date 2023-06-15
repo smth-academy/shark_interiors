@@ -66,12 +66,11 @@ creaProdotto( "sedie", {
         },
 
         "Rosso": {
-            sedile: 0xff0000
+            sedile: 0xff6666
         },
 
         "Blu": {
-            sedile: 0x0000ff,
-            gamba: 0x0000ff
+            sedile: 0x6666ff,
         }
     }
 } )
