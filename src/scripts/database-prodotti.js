@@ -84,7 +84,7 @@ creaProdotto( "divani", {
     modello: "divano_wes",
     stili: {
         "Predefinito": {
-
+            divano: 0xffffff
         }
     }
 } )
