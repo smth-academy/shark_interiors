@@ -21,4 +21,6 @@ Il sito è strutturato in tre parti: pagina principale, catalogo prodotti e visu
 
 - **Il catalogo prodotti** elenca tutti i prodotti della collezione di mobili SHARK Interiors dividendoli in categorie per tipo. I prodotti in elenco possono essere poi cliccati per accedere alla informazioni dettagliate sul prodotto scelto
 
-- **Il visualizzatore** ha lo scopo di presentare il prodotto scelto dal catalogo. L'interfaccia è composta da tre parti: scena 3D, pannello stili e pannello informazioni. La scena 3D permette di osservare la rappresentazione tridimensionale del prodotto trascinando il mouse dentro lo spazio dedicato; il pannello stili consente di selezionare uno stile tra quelli disponibili per il prodotto; il pannello informazioni invece descrive diversi aspetti del prodotto come la categoria di cui fa parte, il nome, lo stile selezionato, le dimensioni e una breve descrizione
+- **Il visualizzatore** ha lo scopo di presentare il prodotto scelto dal catalogo. L'interfaccia è composta da tre parti: scena 3D, pannello stili e pannello informazioni. La scena 3D permette di osservare la rappresentazione tridimensionale del prodotto trascinando il mouse dentro lo spazio dedicato.
+Il pannello stili consente di selezionare uno stile tra quelli disponibili per il prodotto.
+Il pannello informazioni invece descrive diversi aspetti del prodotto come la categoria di cui fa parte, il nome, lo stile selezionato, le dimensioni e una breve descrizione
