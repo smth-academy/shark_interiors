@@ -63,6 +63,15 @@ creaProdotto( "sedie", {
     stili: {
         "Predefinito": {
 
+        },
+
+        "Rosso": {
+            sedile: 0xff0000
+        },
+
+        "Blu": {
+            sedile: 0x0000ff,
+            gamba: 0x0000ff
         }
     }
 } )
