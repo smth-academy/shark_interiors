@@ -8,11 +8,7 @@ creaProdotto( "tavoli", {
     ],
     modello: "tavolo_halley",
     stili: {
-        "Predefinito": {
-            gamba: 0xffffff,
-            placca: 0xffffff,
-            ripiano: 0xffffff
-        },
+        "Predefinito": {},
         
         "Rosso": {
             ripiano: 0xff0000
@@ -33,9 +29,7 @@ creaProdotto( "mobili", {
     ],
     modello: "armadio_nelson",
     stili: {
-        "Predefinito": {
-
-        }
+        "Predefinito": {}
     }
 } )
 
@@ -47,9 +41,7 @@ creaProdotto( "mobili", {
     ],
     modello: "armadietto_nelson",
     stili: {
-        "Predefinito": {
-
-        }
+        "Predefinito": {}
     }
 } )
 
@@ -61,16 +53,14 @@ creaProdotto( "sedie", {
     ],
     modello: "sedia_lilly",
     stili: {
-        "Predefinito": {
-
-        },
+        "Predefinito": {},
 
         "Rosso": {
             sedile: 0xff6666
         },
 
         "Blu": {
-            sedile: 0x6666ff,
+            sedile: 0x6666ff
         }
     }
 } )
@@ -83,9 +73,7 @@ creaProdotto( "divani", {
     ],
     modello: "divano_wes",
     stili: {
-        "Predefinito": {
-            divano: 0xffffff
-        }
+        "Predefinito": {}
     }
 } )
 
