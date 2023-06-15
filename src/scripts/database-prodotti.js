@@ -2,7 +2,7 @@ let prodotti = {}
 
 creaProdotto( "tavoli", {
     titolo: "Tavolo Halley",
-    descrizione: "",
+    descrizione: "Descrizione",
     dimensioni: [
         [3, 0.7, 1.30], "m"
     ],
@@ -27,7 +27,7 @@ creaProdotto( "tavoli", {
 
 creaProdotto( "mobili", {
     titolo: "Armadio Nelson",
-    descrizione: "",
+    descrizione: "Descrizione",
     dimensioni: [
         [70, 135, 46], "cm"
     ],
@@ -41,7 +41,7 @@ creaProdotto( "mobili", {
 
 creaProdotto( "mobili", {
     titolo: "Armadietto Nelson",
-    descrizione: "",
+    descrizione: "Descrizione",
     dimensioni: [
         [2.4, 0.7, 0.5], "m"
     ],
@@ -55,7 +55,7 @@ creaProdotto( "mobili", {
 
 creaProdotto( "sedie", {
     titolo: "Sedia Lilly",
-    descrizione: "",
+    descrizione: "Descrizione",
     dimensioni: [
         [0.5, 1, 0.5], "m"
     ],
@@ -77,7 +77,7 @@ creaProdotto( "sedie", {
 
 creaProdotto( "divani", {
     titolo: "Divano Wes",
-    descrizione: "",
+    descrizione: "Descrizione",
     dimensioni: [
         [2.7, 0.8, 1], "cm"
     ],
