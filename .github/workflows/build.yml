@@ -41,7 +41,7 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:${{env.GIT_TAG}}
-          file: ./docker/Dockerfile
+          file: ./Dockerfile
 
       - name: Get Tag
         run: |
