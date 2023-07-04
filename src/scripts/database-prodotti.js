@@ -77,6 +77,80 @@ creaProdotto( "divani", {
     }
 } )
 
+creaProdotto( "mobili", {
+    titolo: "Mobile Nelson 1",
+    descrizione: "Mobile basso",
+    dimensioni: [
+        [240, 73, 51], "cm"
+    ],
+    modello: "nelson_1",
+    stili: {
+        "Predefinito": {},
+    }
+} )
+
+creaProdotto( "mobili", {
+    titolo: "Mobile Nelson 2",
+    descrizione: "Mobile basso vetro",
+    dimensioni: [
+        [180, 60, 46], "cm"
+    ],
+    modello: "nelson_2",
+    stili: {
+        "Predefinito": {},
+    }
+} )
+
+creaProdotto( "mobili", {
+    titolo: "Mobile Nelson 3",
+    descrizione: "Armadio",
+    dimensioni: [
+        [70, 135, 46], "cm"
+    ],
+    modello: "nelson_3",
+    stili: {
+        "Predefinito": {},
+    }
+} )
+
+creaProdotto( "mobili", {
+    titolo: "Mobile Nelson 4",
+    descrizione: "Scaffale in vetro",
+    dimensioni: [
+        [80, 179, 46], "cm"
+    ],
+    modello: "nelson_4",
+    stili: {
+        "Predefinito": {},
+    }
+} )
+
+creaProdotto( "tavoli", {
+    titolo: "Tavolino Nelson 05A",
+    descrizione: "Tavolino salotto",
+    dimensioni: [
+        [90, 40, 60], "cm"
+    ],
+    modello: "nelson_05A",
+    stili: {
+        "Predefinito": {},
+    }
+} )
+
+creaProdotto( "divani", {
+    titolo: "Poltrona Wes",
+    descrizione: "Poltrona Wes",
+    dimensioni: [
+        [155, 86.5, 106], "cm"
+    ],
+    modello: "poltrona_wes",
+    stili: {
+        "Predefinito": {},
+    }
+} )
+
+
+
 function creaProdotto( categoria, oggettoProdotto ) {
 
     if ( !categoria )

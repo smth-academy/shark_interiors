@@ -40,7 +40,6 @@ function initListMenu() {
 
 
 function init() {
-
     initIntersectionObserver()
     initPulsanteDownload()
     initPulsanteProdotti()
