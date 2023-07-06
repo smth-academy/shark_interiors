@@ -21,30 +21,6 @@ creaProdotto( "tavoli", {
     }
 } )
 
-creaProdotto( "mobili", {
-    titolo: "Armadio Nelson",
-    descrizione: "Descrizione",
-    dimensioni: [
-        [70, 135, 46], "cm"
-    ],
-    modello: "armadio_nelson",
-    stili: {
-        "Predefinito": {}
-    }
-} )
-
-creaProdotto( "mobili", {
-    titolo: "Armadietto Nelson",
-    descrizione: "Descrizione",
-    dimensioni: [
-        [2.4, 0.7, 0.5], "m"
-    ],
-    modello: "armadietto_nelson",
-    stili: {
-        "Predefinito": {}
-    }
-} )
-
 creaProdotto( "sedie", {
     titolo: "Sedia Lilly",
     descrizione: "Descrizione",
